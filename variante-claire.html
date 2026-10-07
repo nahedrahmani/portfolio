@@ -1,0 +1,628 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Nahed Rahmani, ingénieure logiciel</title>
+<meta name="description" content="Nahed Rahmani, ingénieure logiciel passionnée d'intelligence artificielle.">
+<meta name="theme-color" content="#F7F5F0" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#14161A" media="(prefers-color-scheme: dark)">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' fill='%23F7F5F0'/%3E%3Ctext x='32' y='44' font-family='Georgia,serif' font-size='32' fill='%235B7C99' text-anchor='middle'%3ENR%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Archivo:wght@400;500;600&display=swap">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lenis@1.1.18/dist/lenis.css">
+<style>
+:root{
+  --paper:#F7F5F0; --surface:#FFFFFF; --paper-2:#EFEBE3;
+  --ink:#14161A; --ink-2:#5A5F66; --ink-3:#8E9299;
+  --line:#E3DED5; --line-2:#EDE9E1;
+  --serif:"Instrument Serif",Georgia,"Times New Roman",serif;
+  --sans:"Archivo",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --ease:cubic-bezier(.22,.7,.2,1);
+  --gut:clamp(22px,6vw,90px);
+}
+</style>
+<style>
+:root{
+  --acc:#4E7A99; --acc-soft:rgba(78,122,153,.12);
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --paper:#14161A; --surface:#1A1D22; --paper-2:#1F232A;
+  --ink:#F2F0EB; --ink-2:#A8ACB2; --ink-3:#787D85;
+  --line:#282C32; --line-2:#21252A;
+  --acc:#8FB0CC; --acc-soft:rgba(143,176,204,.14);
+}}
+:root[data-theme="dark"]{
+  --paper:#14161A; --surface:#1A1D22; --paper-2:#1F232A;
+  --ink:#F2F0EB; --ink-2:#A8ACB2; --ink-3:#787D85;
+  --line:#282C32; --line-2:#21252A;
+  --acc:#8FB0CC; --acc-soft:rgba(143,176,204,.14);
+}
+
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--paper);color:var(--ink);font-family:var(--sans);
+  font-size:17px;line-height:1.7;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+img{max-width:100%;display:block}
+a{color:inherit}
+::selection{background:var(--acc-soft)}
+a:focus-visible,button:focus-visible,summary:focus-visible{outline:1.5px solid var(--acc);outline-offset:4px}
+
+.page{max-width:1060px;margin:0 auto;padding-inline:var(--gut)}
+.col{max-width:64ch}
+.lab{font-family:var(--sans);font-size:.7rem;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:var(--acc)}
+.skip{position:absolute;left:-9999px;top:0;z-index:99;background:var(--acc);color:#fff;padding:12px 18px;font-size:.8rem}
+.skip:focus{left:0}
+
+/* ---------- filet de navigation, tres discret ---------- */
+.rail{position:sticky;top:0;z-index:50;background:color-mix(in srgb,var(--paper) 90%,transparent);
+  backdrop-filter:blur(8px);border-bottom:1px solid var(--line-2)}
+.rail-in{display:flex;align-items:center;justify-content:space-between;gap:20px;height:58px}
+.rail .nom{font-family:var(--serif);font-size:1.16rem;letter-spacing:.01em}
+.nav{display:flex;gap:30px}
+.nav a{position:relative;font-size:.8rem;color:var(--ink-2);text-decoration:none;padding:4px 0;transition:color .4s var(--ease)}
+.nav a::after{content:"";position:absolute;left:0;right:0;bottom:2px;height:1px;background:var(--acc);
+  transform:scaleX(0);transform-origin:left;transition:transform .5s var(--ease)}
+.nav a:hover{color:var(--ink)}
+.nav a:hover::after,.nav a[aria-current="true"]::after{transform:scaleX(1)}
+.nav a[aria-current="true"]{color:var(--acc)}
+.mode{background:none;border:0;cursor:pointer;color:var(--ink-3);font-size:.72rem;letter-spacing:.14em;
+  text-transform:uppercase;transition:color .4s var(--ease)}
+.mode:hover{color:var(--acc)}
+.burger{display:none;background:none;border:0;cursor:pointer;color:var(--ink);font-size:.75rem;letter-spacing:.12em;text-transform:uppercase}
+.sheet{border-bottom:1px solid var(--line-2);background:var(--paper-2)}
+.sheet a{display:block;padding:14px 0;font-size:.9rem;color:var(--ink-2);text-decoration:none;border-bottom:1px solid var(--line-2)}
+.sheet a:last-child{border-bottom:0}
+@media(max-width:860px){.nav{display:none}.burger{display:block}}
+@media(min-width:861px){.sheet{display:none!important}}
+
+/* ---------- ouverture ---------- */
+.hero{padding-block:clamp(60px,11vw,150px) clamp(50px,8vw,110px)}
+.hero-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:clamp(34px,6vw,86px);align-items:center}
+@media(max-width:900px){.hero-grid{grid-template-columns:1fr;gap:44px}}
+h1{font-family:var(--serif);font-weight:400;font-size:clamp(3.4rem,11vw,7.6rem);line-height:.92;letter-spacing:-.015em}
+h1 .ln{display:block;overflow:hidden}
+h1 .ln i{display:block;font-style:normal}
+h1 em{font-style:italic;color:var(--acc)}
+.hero .dit{font-size:clamp(1.06rem,2.1vw,1.28rem);line-height:1.62;color:var(--ink-2);max-width:40ch;margin-top:1.7rem}
+.hero .dit b{color:var(--ink);font-weight:500}
+.hero .liens{display:flex;flex-wrap:wrap;gap:8px 26px;margin-top:2.3rem;font-size:.9rem}
+.hero .liens a{color:var(--ink-2);text-decoration:none;border-bottom:1px solid var(--line);padding-bottom:3px;transition:color .4s var(--ease),border-color .4s var(--ease)}
+.hero .liens a:hover{color:var(--acc);border-color:var(--acc)}
+.hero .dispo{display:inline-flex;align-items:center;gap:.6em;margin-top:2rem;font-size:.78rem;letter-spacing:.12em;text-transform:uppercase;color:var(--acc)}
+.hero .dispo i{width:6px;height:6px;border-radius:50%;background:var(--acc);display:block}
+
+/* le portrait : simple, grand, pose */
+.portrait{position:relative}
+.portrait img{width:100%;border-radius:3px;box-shadow:0 30px 70px rgba(20,22,26,.14),0 4px 12px rgba(20,22,26,.06)}
+.portrait figcaption{font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-3);
+  margin-top:16px;display:flex;align-items:center;gap:.8em}
+.portrait figcaption::before{content:"";width:28px;height:1px;background:var(--acc);display:block}
+
+/* ---------- sections ---------- */
+.sec{padding-block:clamp(56px,9vw,120px);border-top:1px solid var(--line-2)}
+.tete{display:grid;grid-template-columns:4.5rem 1fr;gap:clamp(16px,3vw,34px);align-items:baseline;margin-bottom:clamp(28px,4.5vw,54px)}
+@media(max-width:640px){.tete{grid-template-columns:1fr;gap:6px}}
+.tete .no{font-family:var(--serif);font-size:2.1rem;color:var(--acc);line-height:1}
+.tete h2{font-family:var(--serif);font-weight:400;font-size:clamp(2rem,5vw,3.2rem);line-height:1.05;letter-spacing:-.012em}
+.tete .sous{font-size:.88rem;color:var(--ink-3);margin-top:.5rem}
+.prose p{color:var(--ink-2)}
+.prose p + p{margin-top:1.1em}
+.prose .grand{font-family:var(--serif);font-size:clamp(1.4rem,3vw,1.95rem);line-height:1.35;color:var(--ink);letter-spacing:-.005em}
+.prose b{color:var(--ink);font-weight:500}
+
+/* ---------- projets ---------- */
+.proj{padding-block:clamp(34px,5vw,58px);border-top:1px solid var(--line-2)}
+.proj:first-of-type{border-top:0;padding-top:0}
+.proj-tete{display:flex;flex-wrap:wrap;align-items:baseline;gap:10px 22px}
+.proj-tete h3{font-family:var(--serif);font-weight:400;font-size:clamp(1.7rem,4vw,2.5rem);line-height:1.08;letter-spacing:-.012em}
+.proj-tete .meta{font-size:.78rem;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-3)}
+.proj .corps{margin-top:1.1rem;max-width:64ch}
+.proj .corps p{color:var(--ink-2)}
+.proj .corps p + p{margin-top:.95em}
+.pts{margin-top:1.5rem;max-width:64ch}
+.pts li{list-style:none;display:grid;grid-template-columns:2.2rem 1fr;gap:12px;padding-block:12px;
+  border-top:1px solid var(--line-2);color:var(--ink-2);font-size:.97em}
+.pts li b{font-family:var(--serif);font-size:1.05rem;color:var(--acc);font-weight:400;line-height:1.3}
+.tech{margin-top:1.4rem;font-size:.84rem;color:var(--ink-3);letter-spacing:.02em}
+.voir{display:inline-block;margin-top:1.2rem;font-size:.8rem;letter-spacing:.12em;text-transform:uppercase;
+  color:var(--acc);text-decoration:none;border-bottom:1px solid transparent;transition:border-color .45s var(--ease)}
+.voir:hover{border-bottom-color:var(--acc)}
+.vue{margin-top:2rem;overflow:hidden;border-radius:2px;background:var(--surface);
+  box-shadow:0 22px 54px rgba(20,22,26,.12),0 2px 8px rgba(20,22,26,.05)}
+.vue img,.vue video{width:100%;display:block}
+
+details{margin-top:1.6rem;border-top:1px solid var(--line-2)}
+details:last-of-type{border-bottom:1px solid var(--line-2)}
+summary{cursor:pointer;list-style:none;padding-block:16px;font-size:.82rem;letter-spacing:.1em;
+  text-transform:uppercase;color:var(--ink-2);display:flex;gap:1em;align-items:baseline;transition:color .4s var(--ease)}
+summary::-webkit-details-marker{display:none}
+summary::before{content:"+";color:var(--acc);font-family:var(--serif);font-size:1.1rem}
+details[open] summary::before{content:"–"}
+summary:hover{color:var(--ink)}
+.det{padding-bottom:26px;max-width:64ch}
+.det p{color:var(--ink-2);font-size:.97em}
+.det p + p{margin-top:.9em}
+
+/* ---------- schema ---------- */
+.defil{overflow-x:auto;margin-block:1.6rem;padding-bottom:6px}
+.defil svg{min-width:660px;width:100%;height:auto}
+.bx{fill:none;stroke:var(--line);stroke-width:1}
+.bx-acc{fill:none;stroke:var(--acc);stroke-width:1}
+.s-lbl{fill:var(--ink);font-family:var(--serif);font-size:15px}
+.s-sub{fill:var(--ink-3);font-family:var(--sans);font-size:10px}
+.s-n{fill:var(--acc);font-family:var(--sans);font-size:10px;font-weight:600}
+.arw{stroke:var(--ink-3);stroke-width:1;fill:none}
+.arw-acc{stroke:var(--acc);stroke-width:1;fill:none;stroke-dasharray:3 3}
+
+/* ---------- parcours ---------- */
+.ligne{border-top:1px solid var(--line-2)}
+.etape{display:grid;grid-template-columns:11rem 1fr;gap:clamp(16px,3vw,44px);padding-block:30px;border-bottom:1px solid var(--line-2)}
+@media(max-width:700px){.etape{grid-template-columns:1fr;gap:6px}}
+.etape .quand{font-size:.8rem;color:var(--ink-3);letter-spacing:.04em;padding-top:.35em}
+.etape h4{font-family:var(--serif);font-weight:400;font-size:1.32rem;line-height:1.25;transition:transform .5s var(--ease)}
+.etape:hover h4{transform:translateX(6px)}
+.etape .ou{font-size:.8rem;color:var(--acc);margin-top:5px;letter-spacing:.06em}
+.etape p{color:var(--ink-2);font-size:.96em;margin-top:9px;max-width:60ch}
+.outils{border-top:1px solid var(--line-2);margin-top:44px}
+.outils div{display:grid;grid-template-columns:9rem 1fr;gap:clamp(14px,3vw,40px);padding-block:16px;
+  border-bottom:1px solid var(--line-2);align-items:baseline}
+.outils dt{font-size:.72rem;letter-spacing:.16em;text-transform:uppercase;color:var(--acc)}
+.outils dd{color:var(--ink-2);font-size:.96em}
+@media(max-width:640px){.outils div{grid-template-columns:1fr;gap:4px}}
+
+/* ---------- carrousel des certificats ---------- */
+.cf-wrap{margin-inline:calc(-1 * var(--gut))}
+.coverflow{overflow-x:auto;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;
+  scrollbar-width:none;padding-block:26px}
+.coverflow::-webkit-scrollbar{display:none}
+.cf-track{display:flex;align-items:flex-start;gap:clamp(20px,3.4vw,46px);padding-inline:max(calc(50% - 220px),var(--gut))}
+.cf-card{flex:0 0 clamp(244px,64vw,440px);scroll-snap-align:center;margin:0;will-change:transform,opacity}
+.cf-shot{background:#fff;overflow:hidden;border-radius:2px;
+  box-shadow:0 18px 44px rgba(20,22,26,.13),0 2px 6px rgba(20,22,26,.05)}
+.cf-shot img{width:100%;display:block}
+.cf-card figcaption{margin-top:1rem;font-size:.78rem;line-height:1.6;color:var(--ink-3)}
+.cf-card figcaption b{display:block;font-family:var(--serif);font-weight:400;font-size:1.12rem;
+  line-height:1.3;color:var(--ink);margin-bottom:.3em}
+.cf-ctl{display:flex;align-items:center;justify-content:center;gap:22px;margin-top:10px}
+.cf-ctl button{width:40px;height:40px;border:1px solid var(--line);background:none;color:var(--ink-2);
+  cursor:pointer;font-size:1rem;border-radius:50%;transition:border-color .45s var(--ease),color .45s var(--ease)}
+.cf-ctl button:hover{border-color:var(--acc);color:var(--acc)}
+.cf-cpt{font-size:.78rem;letter-spacing:.14em;color:var(--ink-3)}
+.cf-cpt b{font-weight:500;color:var(--acc)}
+
+/* ---------- fin ---------- */
+.fin{border-top:1px solid var(--line-2);padding-block:clamp(60px,9vw,120px) clamp(30px,4vw,56px)}
+.fin .phrase{font-family:var(--serif);font-weight:400;font-size:clamp(2.2rem,6.4vw,4.4rem);
+  line-height:1.05;letter-spacing:-.015em;max-width:17ch}
+.fin .phrase em{font-style:italic;color:var(--acc)}
+.coord{border-top:1px solid var(--line-2);margin-top:2.8rem}
+.coord a,.coord span.l{display:grid;grid-template-columns:8rem 1fr;gap:18px;padding-block:17px;
+  border-bottom:1px solid var(--line-2);text-decoration:none;align-items:baseline}
+.coord .k{font-size:.72rem;letter-spacing:.16em;text-transform:uppercase;color:var(--ink-3)}
+.coord .v{font-size:1.04em;color:var(--ink);transition:transform .5s var(--ease),color .4s var(--ease)}
+.coord a:hover .v{color:var(--acc);transform:translateX(7px)}
+@media(max-width:560px){.coord a,.coord span.l{grid-template-columns:1fr;gap:2px}}
+.pied{padding-block:26px;border-top:1px solid var(--line-2);font-size:.76rem;color:var(--ink-3);
+  display:flex;flex-wrap:wrap;gap:8px 28px;justify-content:space-between}
+
+/* ---------- mouvement : etats de depart seulement ---------- */
+.js h1 .ln i{transform:translateY(103%)}
+.js .rev{opacity:0}
+.js .vue img,.js .vue video,.js .portrait img{clip-path:inset(0 0 100% 0)}
+.js .diag .bx,.js .diag .bx-acc,.js .diag text{opacity:0}
+.js .diag .arw,.js .diag .arw-acc{stroke-dasharray:200;stroke-dashoffset:200}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+</style>
+<script>
+if(!matchMedia("(prefers-reduced-motion: reduce)").matches)document.documentElement.classList.add("js");
+</script>
+</head>
+<body>
+
+<a href="#s1" class="skip">Aller au contenu</a>
+
+<header class="rail">
+  <div class="page rail-in">
+    <span class="nom">Nahed Rahmani</span>
+    <nav class="nav" id="nav" aria-label="Sections">
+      <a href="#s1">Profil</a><a href="#s2">Projets</a><a href="#s3">Parcours</a>
+      <a href="#s4">Certifications</a><a href="#s5">Contact</a>
+    </nav>
+    <button class="burger" id="burger" aria-expanded="false" aria-controls="sheet">Sommaire</button>
+    <button class="mode" id="mode" aria-label="Basculer le thème" aria-pressed="false">Nuit</button>
+  </div>
+  <div class="sheet" id="sheet" hidden><div class="page">
+    <a href="#s1">Profil</a><a href="#s2">Projets</a><a href="#s3">Parcours</a>
+    <a href="#s4">Certifications</a><a href="#s5">Contact</a>
+  </div></div>
+</header>
+
+<main>
+
+<!-- ============ OUVERTURE ============ -->
+<section class="hero"><div class="page hero-grid">
+  <div>
+    <span class="lab rev">Ingénieure logiciel &amp; IA</span>
+    <h1>
+      <span class="ln"><i>Nahed</i></span>
+      <span class="ln"><i><em>Rahmani</em></i></span>
+    </h1>
+    <p class="dit rev">J'écris du code qui part en production, et j'aime surtout le moment où il faut <b>prouver qu'un modèle tient ce qu'il promet</b>.</p>
+    <div class="dispo rev"><i></i>Disponible</div>
+    <div class="liens rev">
+      <a href="mailto:nahed.rahmani@esprit.tn">nahed.rahmani@esprit.tn</a>
+      <a href="https://github.com/nahedrahmani" target="_blank" rel="noopener">GitHub</a>
+      <a href="https://www.linkedin.com/in/nahed-rahmani" target="_blank" rel="noopener">LinkedIn</a>
+    </div>
+  </div>
+  <figure class="portrait rev">
+    <img src="assets/portrait.jpg" alt="Portrait de Nahed Rahmani">
+    <figcaption>Tunis, Tunisie</figcaption>
+  </figure>
+</div></section>
+
+<!-- ============ 01 PROFIL ============ -->
+<section class="sec" id="s1"><div class="page">
+  <div class="tete rev">
+    <span class="no">01</span>
+    <div><h2>Profil</h2><div class="sous">ce que je fais, et pourquoi</div></div>
+  </div>
+  <div class="prose col rev">
+    <p class="grand">Je développe des applications, et j'y fais entrer des modèles quand ils apportent quelque chose de réel.</p>
+    <p style="margin-top:1.4em">Le développement est le métier : des services qui tiennent, des droits appliqués au bon endroit, des tests qui me préviennent quand je casse quelque chose. L'intelligence artificielle est ce qui m'occupe en dehors, et ce que je cherche à mettre en production dès que l'occasion se présente : affiner un petit modèle, le servir en local, l'interroger, le mesurer.</p>
+    <p>Sur ce dernier point j'ai une conviction simple. Un modèle qui répond bien sur ses propres données d'entraînement ne prouve rien du tout, et presque tout mon intérêt va à ce qu'on fait après, pour savoir si le résultat compte vraiment.</p>
+    <p>Je travaille en français, en anglais et en arabe, ce qui sert plus souvent qu'on ne le croit quand il faut faire lire une interface, ou un modèle, dans les trois.</p>
+  </div>
+</div></section>
+
+<!-- ============ 02 PROJETS ============ -->
+<section class="sec" id="s2"><div class="page">
+  <div class="tete rev">
+    <span class="no">02</span>
+    <div><h2>Projets</h2><div class="sous">cinq livrés, deux en entreprise</div></div>
+  </div>
+
+  <article class="proj rev">
+    <div class="proj-tete"><h3>Eidos</h3><span class="meta">Elitecom &middot; 2026 &middot; PFE</span></div>
+    <div class="corps">
+      <p>Plateforme de gestion pour les fédérations sportives tunisiennes, développée à plusieurs. Ma part : le service documentaire, la chaîne OCR qui lit les pièces scannées, l'affinage du modèle de langage qui en extrait les champs, et le harnais qui mesure ce modèle.</p>
+      <ul class="pts">
+        <li><b>01</b><span>Une chaîne OCR bilingue, français et arabe, dont la sortie brute est reprise par un petit modèle affiné et servi en local pour en tirer des champs structurés, là où des expressions régulières auraient cédé au premier changement de mise en page.</span></li>
+        <li><b>02</b><span>Une signature électronique que n'importe qui peut vérifier sans compte, parce que celui qui reçoit le document est justement celui qui n'est pas dans le système.</span></li>
+        <li><b>03</b><span>Un assistant conversationnel dont le périmètre est filtré avant que le modèle ne voie les données, et non demandé poliment dans son prompt.</span></li>
+      </ul>
+      <div class="tech">Laravel 12 &middot; FastAPI &middot; MySQL &middot; MongoDB &middot; ChromaDB &middot; Ollama &middot; Docker<br>72 tests automatisés &middot; OCR à 98,6 % &middot; 65 documents d'évaluation</div>
+    </div>
+    <div class="vue"><img src="assets/eidos-signature.webp" width="1187" height="825" loading="lazy" decoding="async" alt="Écran de signature électronique d'un document dans Eidos"></div>
+
+    <details>
+      <summary>Comment j'ai vérifié que le modèle affiné tenait</summary>
+      <div class="det" style="max-width:none">
+        <p style="max-width:64ch">L'entraînement n'avait pas de jeu de validation : la courbe de perte ne distingue pas un modèle qui apprend d'un modèle qui retient. J'ai donc mesuré le modèle de l'extérieur, sur celui qui est réellement servi, avec soixante-cinq documents répartis en six suites, dont une sonde de mémorisation et une suite en arabe que le corpus ne contient pas.</p>
+        <div class="defil">
+          <svg class="diag" viewBox="0 0 880 210" role="img" aria-label="Chaîne d'extraction : document scanné, OCR, modèle affiné, garde-fou d'ancrage, champs validés, avec le harnais qui mesure le modèle servi">
+            <text class="s-n" x="6" y="24">1</text>
+            <rect class="bx" x="6" y="34" width="150" height="56"></rect>
+            <text class="s-lbl" x="20" y="60">Document</text>
+            <text class="s-sub" x="20" y="78">scanné, en image</text>
+            <text class="s-n" x="186" y="24">2</text>
+            <rect class="bx" x="186" y="34" width="150" height="56"></rect>
+            <text class="s-lbl" x="200" y="60">OCR</text>
+            <text class="s-sub" x="200" y="78">texte brut, FR et AR</text>
+            <text class="s-n" x="366" y="24">3</text>
+            <rect class="bx-acc" x="366" y="34" width="150" height="56"></rect>
+            <text class="s-lbl" x="380" y="60">Modèle affiné</text>
+            <text class="s-sub" x="380" y="78">local, via Ollama</text>
+            <text class="s-n" x="546" y="24">4</text>
+            <rect class="bx" x="546" y="34" width="150" height="56"></rect>
+            <text class="s-lbl" x="560" y="60">Garde-fou</text>
+            <text class="s-sub" x="560" y="78">ancrage au texte</text>
+            <text class="s-n" x="726" y="24">5</text>
+            <rect class="bx" x="726" y="34" width="148" height="56"></rect>
+            <text class="s-lbl" x="740" y="60">Champs</text>
+            <text class="s-sub" x="740" y="78">relus par un humain</text>
+            <path class="arw" d="M156 62 H180 M173 57 l7 5 -7 5"></path>
+            <path class="arw" d="M336 62 H360 M353 57 l7 5 -7 5"></path>
+            <path class="arw" d="M516 62 H540 M533 57 l7 5 -7 5"></path>
+            <path class="arw" d="M696 62 H720 M713 57 l7 5 -7 5"></path>
+            <path class="arw-acc" d="M441 90 V140 H120 V158"></path>
+            <path class="arw" style="stroke:var(--acc)" d="M115 150 l5 8 5 -8"></path>
+            <rect class="bx-acc" x="6" y="164" width="330" height="40"></rect>
+            <text class="s-lbl" x="20" y="191">Harnais d'évaluation</text>
+            <text class="s-sub" x="352" y="182">65 documents, 6 suites, exécutées sur le modèle</text>
+            <text class="s-sub" x="352" y="197">réellement servi, pas sur celui qu'on croit servir</text>
+          </svg>
+        </div>
+        <p style="max-width:64ch">Résultat : le schéma de sortie est respecté dans 100 % des cas contre 27,7 % pour le modèle de base, sans aucun avantage sur les documents vus à l'entraînement, et les six sondes de mémorisation ne rappellent rien. Le harnais a surtout montré le défaut : le modèle s'abstient mal, ce qui venait du corpus et non du modèle.</p>
+      </div>
+    </details>
+    <details>
+      <summary>Comment les droits s'appliquent avant le modèle</summary>
+      <div class="det">
+        <p>La passerelle transmet au service l'identité de l'appelant, son rôle et sa zone, et ces en-têtes restreignent la recherche avant que le modèle ne voie quoi que ce soit. Les droits ne sont pas une consigne donnée dans un prompt : un modèle à qui l'on demande gentiment de ne rien divulguer finit toujours par divulguer.</p>
+        <p>Le fournisseur de modèle est enfichable. Par défaut le service appelle gpt-4o-mini, choisi pour sa tenue en français et en arabe ; une variable d'environnement bascule sur un modèle local servi par Ollama, au prix du temps de réponse.</p>
+        <div class="vue" style="margin-top:1.4rem"><img src="assets/eidos-chatbot.webp" width="1400" height="662" loading="lazy" decoding="async" alt="Assistant conversationnel répondant à une question"></div>
+      </div>
+    </details>
+  </article>
+
+  <article class="proj rev">
+    <div class="proj-tete"><h3>FournisNet</h3><span class="meta">TALAN via InfoPro &middot; 2024 &middot; stage</span></div>
+    <div class="corps">
+      <p>Gestion des fournisseurs et du catalogue de pièces détachées automobiles, pour des utilisateurs qui travaillent en trois langues. Le catalogue est trop gros pour être chargé d'un bloc : pagination, recherche et filtres sont faits côté serveur.</p>
+      <p>La partie que j'ai eu le plus de plaisir à écrire : la catégorie d'un produit est proposée par un modèle local, à partir du libellé et de la description, et reste une suggestion que l'utilisateur valide. Une suggestion qu'on peut refuser est utile ; une catégorisation automatique silencieuse aurait pollué le catalogue sans que personne ne s'en aperçoive.</p>
+      <div class="tech">Spring Boot &middot; Java 17 &middot; Angular 16 &middot; MySQL &middot; Ollama &middot; WebSocket &middot; Playwright &middot; Docker</div>
+      <a class="voir" href="https://github.com/nahedrahmani/FournisNet" target="_blank" rel="noopener">Voir le code</a>
+    </div>
+    <div class="vue"><video controls loop muted playsinline preload="metadata" poster="assets/fournisnet-poster.webp" width="1280" height="720"><source src="assets/fournisnet-demo.mp4" type="video/mp4"></video></div>
+  </article>
+
+  <article class="proj rev">
+    <div class="proj-tete"><h3>ProjectFlow</h3><span class="meta">2026</span></div>
+    <div class="corps">
+      <p>Une application de gestion de projets et de tâches, écrite de bout en bout : une API Spring Boot d'un côté, une interface Angular de l'autre. Des projets, des tâches portant un statut et une échéance, un filtrage par projet et par statut, et une suppression en cascade pour qu'aucune tâche ne survive au projet qui la portait.</p>
+      <p>C'est un projet volontairement modeste, et c'est ce qui m'a plu : il tient dans une seule tête, donc rien n'y excuse une validation approximative ou un état incohérent entre l'écran et la base.</p>
+      <div class="tech">Spring Boot 3 &middot; Java 17 &middot; Spring Data JPA &middot; Angular 17 &middot; TypeScript &middot; Bootstrap 5</div>
+      <a class="voir" href="https://github.com/nahedrahmani/ProjectFlow" target="_blank" rel="noopener">Voir le code</a>
+    </div>
+    <div class="vue"><video controls loop muted playsinline preload="metadata" poster="assets/projectflow-poster.webp" width="1280" height="530"><source src="assets/projectflow-demo.mp4" type="video/mp4"></video></div>
+  </article>
+
+  <article class="proj rev">
+    <div class="proj-tete"><h3>Système de management de la qualité</h3><span class="meta">ESPRIT &middot; 2024 à 2025</span></div>
+    <div class="corps">
+      <p>Application conforme à la norme ISO 9001, en microservices, réalisée en équipe. Classée parmi les six meilleurs projets de la promotion.</p>
+      <div class="tech">Spring Boot &middot; Angular &middot; Microservices</div>
+    </div>
+  </article>
+
+  <article class="proj rev">
+    <div class="proj-tete"><h3>Refonte du site institutionnel d'ESPRIT</h3><span class="meta">ESPRIT &middot; 2024 à 2025</span></div>
+    <div class="corps">
+      <p>Refonte complète, de la structure des contenus à l'adaptation aux petits écrans, sur une architecture MVC classique.</p>
+      <div class="tech">Symfony &middot; Twig</div>
+    </div>
+  </article>
+</div></section>
+
+<!-- ============ 03 PARCOURS ============ -->
+<section class="sec" id="s3"><div class="page">
+  <div class="tete rev">
+    <span class="no">03</span>
+    <div><h2>Parcours</h2><div class="sous">trois entreprises, une école</div></div>
+  </div>
+  <div class="ligne rev">
+    <div class="etape">
+      <div class="quand">Mars &ndash; sept. 2026</div>
+      <div>
+        <h4>Ingénieure logiciel, projet de fin d'études</h4>
+        <div class="ou">Elitecom, Tunis</div>
+        <p>Service documentaire, chaîne OCR, affinage du modèle et harnais d'évaluation, tests et intégration continue.</p>
+      </div>
+    </div>
+    <div class="etape">
+      <div class="quand">Juil. &ndash; sept. 2024</div>
+      <div>
+        <h4>Stagiaire ingénieure logiciel</h4>
+        <div class="ou">TALAN, via InfoPro, Tunis</div>
+        <p>FournisNet : interface Angular, services REST, exports PDF et Excel, suggestion de catégorie par modèle local.</p>
+      </div>
+    </div>
+    <div class="etape">
+      <div class="quand">Juil. &ndash; août 2023</div>
+      <div>
+        <h4>Développeuse full-stack, stage</h4>
+        <div class="ou">Tech4IoT, Tunis</div>
+        <p>Plateforme d'apprentissage en ligne : gestion des cours, suivi de progression, authentification.</p>
+      </div>
+    </div>
+    <div class="etape">
+      <div class="quand">2023 &ndash; 2026</div>
+      <div>
+        <h4>Diplôme d'ingénieur en génie logiciel</h4>
+        <div class="ou">ESPRIT, Tunis</div>
+        <p>Précédé de deux années de classes préparatoires en physique et chimie à l'IPEI de Bizerte.</p>
+      </div>
+    </div>
+  </div>
+  <dl class="outils rev">
+    <div><dt>Modèles</dt><dd>Affinage LoRA avec Unsloth, RAG, OCR, Ollama, conception de harnais d'évaluation</dd></div>
+    <div><dt>Langages</dt><dd>Python, PHP, Java, C, JavaScript, TypeScript</dd></div>
+    <div><dt>Cadres</dt><dd>Laravel, Spring Boot, FastAPI, Angular, Symfony, Node.js</dd></div>
+    <div><dt>Données</dt><dd>MySQL, MongoDB, PostgreSQL, Oracle et PL/SQL, ChromaDB</dd></div>
+    <div><dt>Sécurité</dt><dd>Signature PKI RSA, chiffrement AES, RBAC et PBAC, double facteur</dd></div>
+    <div><dt>Tests</dt><dd>PHPUnit, pytest, Playwright, tests par propriétés</dd></div>
+    <div><dt>Exploitation</dt><dd>Docker et Compose, Kubernetes, Jenkins, GitHub Actions, RabbitMQ, Grafana, Git, Jira, UML</dd></div>
+  </dl>
+</div></section>
+
+<!-- ============ 04 CERTIFICATIONS ============ -->
+<section class="sec" id="s4">
+  <div class="page">
+    <div class="tete rev">
+      <span class="no">04</span>
+      <div><h2>Certifications</h2><div class="sous">neuf, dont six en intelligence artificielle</div></div>
+    </div>
+  </div>
+  <div class="cf-wrap">
+    <div class="coverflow" id="cf" data-lenis-prevent tabindex="0" role="region" aria-label="Certificats, défilement horizontal">
+      <div class="cf-track">
+        <figure class="cf-card"><div class="cf-shot"><img src="assets/cert-genai.webp" width="1000" height="732" loading="lazy" decoding="async" alt="Certificat GOMYCODE, Generative AI for Professionals"></div>
+          <figcaption><b>Generative AI for Professionals</b>GOMYCODE &middot; 12 mars 2026</figcaption></figure>
+        <figure class="cf-card"><div class="cf-shot"><img src="assets/cert-ollama.webp" width="1000" height="735" loading="lazy" decoding="async" alt="Certificat KodeKloud, Running Local LLMs with Ollama"></div>
+          <figcaption><b>Running Local LLMs with Ollama</b>KodeKloud &middot; 14 février 2026</figcaption></figure>
+        <figure class="cf-card"><div class="cf-shot"><img src="assets/cert-transformers.webp" width="1000" height="931" loading="lazy" decoding="async" alt="Certificat NVIDIA, Building Transformer-Based NLP Applications"></div>
+          <figcaption><b>Building Transformer-Based NLP Applications</b>NVIDIA Deep Learning Institute &middot; 13 novembre 2025</figcaption></figure>
+        <figure class="cf-card"><div class="cf-shot"><img src="assets/cert-hashgraph.webp" width="1000" height="563" loading="lazy" decoding="async" alt="Certificat The Hashgraph Association, Hashgraph Developer Course"></div>
+          <figcaption><b>Hashgraph Developer Course</b>The Hashgraph Association &middot; 13 novembre 2025</figcaption></figure>
+        <figure class="cf-card"><div class="cf-shot"><img src="assets/cert-aws.webp" width="1000" height="606" loading="lazy" decoding="async" alt="Certificat AWS Academy Graduate, Cloud Foundations"></div>
+          <figcaption><b>AWS Academy Graduate, Cloud Foundations</b>Amazon Web Services &middot; 9 novembre 2025</figcaption></figure>
+        <figure class="cf-card"><div class="cf-shot"><img src="assets/cert-anomaly.webp" width="1000" height="878" loading="lazy" decoding="async" alt="Certificat NVIDIA, Applications of AI for Anomaly Detection"></div>
+          <figcaption><b>Applications of AI for Anomaly Detection</b>NVIDIA Deep Learning Institute &middot; 4 novembre 2025</figcaption></figure>
+        <figure class="cf-card"><div class="cf-shot"><img src="assets/cert-apollo.webp" width="1000" height="534" loading="lazy" decoding="async" alt="Certificat Apollo GraphQL, API Orchestration Associate"></div>
+          <figcaption><b>API Orchestration, Associate</b>Apollo GraphQL &middot; 3 novembre 2025</figcaption></figure>
+        <figure class="cf-card"><div class="cf-shot"><img src="assets/cert-llm-customization.webp" width="1000" height="792" loading="lazy" decoding="async" alt="Certificat NVIDIA, Evaluation and Light Customization of Large Language Models"></div>
+          <figcaption><b>Evaluation and Light Customization of LLMs</b>NVIDIA Deep Learning Institute &middot; 11 juin 2025</figcaption></figure>
+        <figure class="cf-card"><div class="cf-shot"><img src="assets/cert-deep-learning.webp" width="1000" height="792" loading="lazy" decoding="async" alt="Certificat NVIDIA, Fundamentals of Deep Learning"></div>
+          <figcaption><b>Fundamentals of Deep Learning</b>NVIDIA Deep Learning Institute &middot; 19 mars 2025</figcaption></figure>
+      </div>
+    </div>
+    <div class="cf-ctl">
+      <button type="button" id="cfPrev" aria-label="Certificat précédent">&#8592;</button>
+      <span class="cf-cpt"><b id="cfNow">1</b> / 9</span>
+      <button type="button" id="cfNext" aria-label="Certificat suivant">&#8594;</button>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- ============ 05 CONTACT ============ -->
+<footer>
+<section class="fin" id="s5"><div class="page">
+  <div class="tete rev">
+    <span class="no">05</span>
+    <div><h2>Contact</h2></div>
+  </div>
+  <p class="phrase rev">Parlons de ce qui part <em>en production</em>.</p>
+  <div class="prose col rev" style="margin-top:1.6rem">
+    <p>Je cherche un poste d'ingénieure logicielle où l'intelligence artificielle est un composant qu'on livre et qu'on mesure, pas une démonstration.</p>
+  </div>
+  <div class="coord rev">
+    <a href="mailto:nahed.rahmani@esprit.tn"><span class="k">Courriel</span><span class="v">nahed.rahmani@esprit.tn</span></a>
+    <a href="tel:+21627324464"><span class="k">Téléphone</span><span class="v">+216 27 324 464</span></a>
+    <a href="https://www.linkedin.com/in/nahed-rahmani" target="_blank" rel="noopener"><span class="k">LinkedIn</span><span class="v">nahed-rahmani</span></a>
+    <a href="https://github.com/nahedrahmani" target="_blank" rel="noopener"><span class="k">GitHub</span><span class="v">nahedrahmani</span></a>
+    <span class="l"><span class="k">Langues</span><span class="v">Arabe (natif), français, anglais</span></span>
+  </div>
+</div></section>
+<div class="page"><div class="pied">
+  <span>Tunis, 2026.</span>
+  <span>Instrument Serif &amp; Archivo</span>
+</div></div>
+</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/lenis@1.1.18/dist/lenis.min.js"></script>
+<script>
+(function(){
+  var root=document.documentElement;
+  var motion=root.classList.contains("js");
+
+  function sys(){return matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light";}
+  function cur(){return root.getAttribute("data-theme")||sys();}
+  try{var v=localStorage.getItem("nr-clair");if(v==="dark"||v==="light")root.setAttribute("data-theme",v);}catch(e){}
+  var md=document.getElementById("mode");
+  function sync(){var d=cur()==="dark";md.textContent=d?"Jour":"Nuit";md.setAttribute("aria-pressed",d?"true":"false");}
+  sync();
+  md.addEventListener("click",function(){
+    var n=cur()==="dark"?"light":"dark";
+    root.setAttribute("data-theme",n);
+    try{localStorage.setItem("nr-clair",n);}catch(e){}
+    sync();
+  });
+
+  var bg=document.getElementById("burger"),sh=document.getElementById("sheet");
+  function shut(){sh.hidden=true;bg.setAttribute("aria-expanded","false");}
+  bg.addEventListener("click",function(){var o=sh.hidden;sh.hidden=!o;bg.setAttribute("aria-expanded",o?"true":"false");});
+  sh.addEventListener("click",function(e){if(e.target.closest("a"))shut();});
+  document.addEventListener("keydown",function(e){if(e.key==="Escape"&&!sh.hidden){shut();bg.focus();}});
+  addEventListener("resize",function(){if(innerWidth>860)shut();});
+
+  var links=[].slice.call(document.querySelectorAll(".nav a"));
+  var cibles=links.map(function(a){return document.querySelector(a.getAttribute("href"));}).filter(Boolean);
+  if(cibles.length&&"IntersectionObserver" in window){
+    var vus={};
+    var spy=new IntersectionObserver(function(es){
+      es.forEach(function(e){vus[e.target.id]=e.isIntersecting?e.intersectionRatio:0;});
+      var best=null,bv=0;
+      Object.keys(vus).forEach(function(id){if(vus[id]>bv){bv=vus[id];best=id;}});
+      links.forEach(function(a){
+        if(best&&a.getAttribute("href")==="#"+best)a.setAttribute("aria-current","true");
+        else a.removeAttribute("aria-current");
+      });
+    },{threshold:[0,.2,.5],rootMargin:"-58px 0px -55% 0px"});
+    cibles.forEach(function(t){spy.observe(t);});
+  }
+
+  var hasGsap = typeof gsap !== "undefined" && typeof ScrollTrigger !== "undefined";
+  if(motion && !hasGsap) root.classList.remove("js");
+  var lenis=null;
+
+  if(motion && hasGsap){
+    gsap.registerPlugin(ScrollTrigger);
+    if(typeof Lenis !== "undefined"){
+      lenis=new Lenis({lerp:.09,smoothWheel:true});
+      lenis.on("scroll",ScrollTrigger.update);
+      gsap.ticker.add(function(t){lenis.raf(t*1000);});
+      gsap.ticker.lagSmoothing(0);
+    }
+
+    gsap.set("h1 .ln i",{yPercent:103});
+    gsap.timeline({defaults:{ease:"power2.out"}})
+      .to("h1 .ln i",{yPercent:0,duration:1.15,stagger:.11},.05)
+      .fromTo(".hero .rev",{y:12},{opacity:1,y:0,duration:1,stagger:.1},.3);
+
+    gsap.utils.toArray(".sec .rev, .fin .rev").forEach(function(el){
+      gsap.fromTo(el,{opacity:0,y:16},{opacity:1,y:0,duration:1.2,ease:"power2.out",
+        scrollTrigger:{trigger:el,start:"top 90%",once:true}});
+    });
+
+    gsap.utils.toArray(".vue img, .vue video, .portrait img").forEach(function(el){
+      gsap.to(el,{clipPath:"inset(0 0 0% 0)",duration:1.5,ease:"power2.out",
+        scrollTrigger:{trigger:el,start:"top 94%",once:true}});
+    });
+
+    gsap.utils.toArray(".diag").forEach(function(sv){
+      gsap.timeline({scrollTrigger:{trigger:sv,start:"top 86%",once:true}})
+        .to(sv.querySelectorAll(".bx, .bx-acc, text"),{opacity:1,duration:.6,stagger:.05,ease:"power2.out"},0)
+        .to(sv.querySelectorAll(".arw, .arw-acc"),{strokeDashoffset:0,duration:.8,stagger:.08,ease:"power2.out"},.2);
+    });
+
+    if(lenis){
+      document.querySelectorAll('a[href^="#"]').forEach(function(a){
+        a.addEventListener("click",function(e){
+          var t=document.querySelector(a.getAttribute("href"));
+          if(!t)return; e.preventDefault(); shut(); lenis.scrollTo(t,{offset:-60});
+        });
+      });
+    }
+  }
+
+  var cf=document.getElementById("cf");
+  if(cf){
+    var cards=[].slice.call(cf.querySelectorAll(".cf-card"));
+    var now=document.getElementById("cfNow");
+    var set=cards.map(function(c){
+      return (motion&&hasGsap)?{sc:gsap.quickSetter(c,"scale"),op:gsap.quickSetter(c,"opacity")}:null;
+    });
+    var att=0;
+    function peindre(){
+      att=0;
+      var r=cf.getBoundingClientRect(), mid=r.left+r.width/2, best=0, bd=1e9;
+      cards.forEach(function(c,i){
+        var b=c.getBoundingClientRect(), cc=b.left+b.width/2;
+        var k=Math.min(Math.abs((cc-mid)/(r.width/2)),1), st=set[i];
+        if(st){st.sc(1-k*.07);st.op(1-k*.4);}
+        var d=Math.abs(cc-mid); if(d<bd){bd=d;best=i;}
+      });
+      if(now)now.textContent=String(best+1);
+    }
+    function onScroll(){if(!att)att=requestAnimationFrame(peindre);}
+    cf.addEventListener("scroll",onScroll,{passive:true});
+    addEventListener("resize",onScroll);
+    function go(d){var b=cards[0].getBoundingClientRect();cf.scrollBy({left:d*(b.width+34),behavior:motion?"smooth":"auto"});}
+    document.getElementById("cfPrev").addEventListener("click",function(){go(-1);});
+    document.getElementById("cfNext").addEventListener("click",function(){go(1);});
+    cf.addEventListener("keydown",function(e){
+      if(e.key==="ArrowRight"){e.preventDefault();go(1);}
+      else if(e.key==="ArrowLeft"){e.preventDefault();go(-1);}
+    });
+    peindre(); addEventListener("load",peindre);
+  }
+})();
+</script>
+</body>
+</html>

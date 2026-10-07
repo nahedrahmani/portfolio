@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Diagnostic du portfolio</title>
+<style>
+  body{background:#0B0B0C;color:#EFEDE7;font:15px/1.7 system-ui,sans-serif;margin:0;padding:28px}
+  h1{font-size:1.2rem;margin:0 0 18px;font-weight:600}
+  .code{background:#17171A;border:1px solid #2A2A2E;padding:16px;border-radius:6px;
+    font-family:ui-monospace,Consolas,monospace;font-size:13px;white-space:pre-wrap;
+    word-break:break-all;user-select:all;cursor:text;color:#CBB48A}
+  table{border-collapse:collapse;margin-top:22px;width:100%;max-width:760px}
+  td{border-bottom:1px solid #222;padding:9px 10px;vertical-align:top}
+  td:first-child{color:#9B9992;width:210px}
+  .ok{color:#7FBF7F}.ko{color:#E07A6B}
+  p.aide{color:#9B9992;margin-top:22px;max-width:70ch}
+  button{margin-top:14px;background:#CBB48A;color:#0B0B0C;border:0;padding:11px 18px;
+    font:600 13px system-ui;border-radius:4px;cursor:pointer}
+</style>
+</head>
+<body>
+<h1>Diagnostic du portfolio</h1>
+
+<div class="code" id="resume">mesure en cours...</div>
+<button id="copier">Copier cette ligne</button>
+
+<table id="detail"></table>
+
+<p class="aide">Copiez la ligne ci-dessus et envoyez-la moi. Elle ne contient aucune donnée
+personnelle : uniquement le navigateur, l'adresse de la page et l'état des fichiers.</p>
+
+<script>
+(function(){
+  var t=[], resume=[];
+  function ligne(cle,val,bon){
+    t.push('<tr><td>'+cle+'</td><td class="'+(bon===undefined?'':(bon?'ok':'ko'))+'">'+val+'</td></tr>');
+  }
+
+  var nav=navigator.userAgent;
+  var moteur=/Firefox\//.test(nav)?'firefox':/Edg\//.test(nav)?'edge':
+             /OPR\//.test(nav)?'opera':/Chrome\//.test(nav)?'chrome':
+             /Safari\//.test(nav)?'safari':'autre';
+  var ver=(nav.match(/(?:Firefox|Edg|OPR|Chrome|Version)\/(\d+)/)||[,'?'])[1];
+
+  ligne('adresse de la page', location.href);
+  ligne('navigateur', moteur+' '+ver);
+  ligne('fenetre', innerWidth+' x '+innerHeight);
+  var io=('IntersectionObserver' in window);
+  ligne('IntersectionObserver', io?'disponible':'ABSENT', io);
+  var rm=matchMedia('(prefers-reduced-motion: reduce)').matches;
+  ligne('animations reduites', rm?'OUI (le systeme les desactive)':'non', !rm);
+  var cp=CSS.supports('clip-path','inset(0 0 0 0)');
+  ligne('clip-path', cp?'supporte':'NON SUPPORTE', cp);
+  var svh=CSS.supports('height','100svh');
+  ligne('unite svh', svh?'supportee':'non supportee (sans gravite)');
+
+  resume.push(moteur+'/'+ver, 'IO='+(io?1:0), 'RM='+(rm?1:0), 'CP='+(cp?1:0),
+              'W='+innerWidth, location.protocol);
+
+  var aTester=[
+    ['assets/vendor/gsap.min.js','GSAP'],
+    ['assets/vendor/ScrollTrigger.min.js','ScrollTrigger'],
+    ['assets/vendor/lenis.min.js','Lenis'],
+    ['assets/portrait.jpg','portrait'],
+    ['index.html','index.html']
+  ];
+  var restants=aTester.length;
+
+  aTester.forEach(function(p){
+    var s=document.createElement('script');
+    var img=new Image();
+    var fini=function(ok){
+      ligne('fichier '+p[1], ok?'charge':'INTROUVABLE', ok);
+      resume.push(p[1]+'='+(ok?'ok':'KO'));
+      if(--restants===0) terminer();
+    };
+    if(/\.js$/.test(p[0])){
+      s.src=p[0]; s.onload=function(){fini(true);}; s.onerror=function(){fini(false);};
+      document.head.appendChild(s);
+    }else if(/\.jpg$/.test(p[0])){
+      img.onload=function(){fini(true);}; img.onerror=function(){fini(false);}; img.src=p[0];
+    }else{
+      fetch(p[0]).then(function(r){fini(r.ok);}).catch(function(){fini(false);});
+    }
+  });
+
+  function terminer(){
+    ligne('objet gsap', (typeof gsap!=='undefined')?'present':'absent', typeof gsap!=='undefined');
+    document.getElementById('detail').innerHTML=t.join('');
+    var txt='DIAG '+resume.join(' ');
+    document.getElementById('resume').textContent=txt;
+    document.getElementById('copier').onclick=function(){
+      navigator.clipboard.writeText(txt).then(function(){
+        document.getElementById('copier').textContent='copie';
+      },function(){
+        document.getElementById('copier').textContent='selectionnez la ligne a la main';
+      });
+    };
+  }
+  setTimeout(function(){ if(restants>0){ restants=0; terminer(); } },6000);
+})();
+</script>
+</body>
+</html>
